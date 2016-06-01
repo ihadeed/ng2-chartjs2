@@ -1,0 +1,31 @@
+{
+  "name": "ng2-chartjs2",
+  "version": "0.0.1",
+  "description": "Chart.js 2.0 definitions for Angular 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/ng2-chartjs2.git"
+  },
+  "keywords": [
+    "angular2",
+    "chart.js",
+    "charts",
+    "ng2",
+    "angularjs"
+  ],
+  "author": "Ibrahim Hadeed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihadeed/ng2-chartjs2/issues"
+  },
+  "homepage": "https://github.com/ihadeed/ng2-chartjs2#readme",
+  "devDependencies": {
+    "@angular/core": "^2.0.0-rc.1",
+    "rxjs": "^5.0.0-beta.6",
+    "zone.js": "^0.6.12"
+  }
+}
