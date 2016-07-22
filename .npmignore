@@ -3,3 +3,4 @@ typings
 *.ts
 !*.d.ts
 *.json
+.npmignore
