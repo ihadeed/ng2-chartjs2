@@ -2,9 +2,9 @@
 
 [![NPM](https://nodei.co/npm/ng2-chartjs2.png?stars&downloads)](https://nodei.co/npm/ng2-chartjs2/)
 
-# Charts 2.0 Directives for Angular 2
+# Chart.js 2.0 Component for Angular 2
 
- Note: This is work in progress, watch this repo to stay up to date.
+Note: This is work in progress, watch this repo to stay up to date.
  
 ## Installation
 ```
@@ -61,3 +61,18 @@ export class MyComponent {
     };
 }
 ```
+
+## TODO
+- [x] Get the charts working
+- [ ] Define interfaces and enums
+  - [x] Main options (missing a few)
+  - [x] Chart types
+  - [ ] Title Configuration
+  - [ ] Legend Configuration
+  - [ ] Tooltip Configuration
+  - [ ] Hover Configuration
+  - [ ] Animation Configuration
+  - [ ] Element Configuration
+  - ... more
+- [ ] Provide more options and control via component inputs
+- [ ] Route chart events through component outputs
