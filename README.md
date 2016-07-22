@@ -3,10 +3,13 @@
 [![NPM](https://nodei.co/npm/ng2-chartjs2.png?stars&downloads)](https://nodei.co/npm/ng2-chartjs2/)
 
 # Chart.js 2.0 Component for Angular 2
+This is an Angular 2 component to display charts. This component uses Chart.js 2.0. It works well with responsive sites, so it should work properly with all Angular2 apps, as well as Ionic 2 apps.
 
 Note: This is work in progress, watch this repo to stay up to date.
  
 ## Installation
+You must manually include Chart.js library into your build or index.html
+
 ```
 npm i --save-dev ng2-chartjs2
 ```
