@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ChartComponent, ChartOptions} from './index';
+import {ChartComponent, Chart} from './index';
 @Component({
   selector: 'my-app',
   template: '<chart [options]="options"></chart>',
@@ -10,7 +10,7 @@ export class AppComponent {
 
   // define options for our charts
   // these options are derived from the official documentation of the plugin
-  options: ChartOptions = {
+  options: Chart.Options = {
     type: 'bar',
     data: {
       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],

@@ -16,7 +16,7 @@ npm i --save-dev ng2-chartjs2
 
 ## Usage
 ```typescript
-import {ChartComponent, ChartOptions} from 'ng2-chartjs2';
+import {ChartComponent, Chart} from 'ng2-chartjs2';
 
 @Component({
   template: `<chart [options]="options"></chart>`, // place this markup in your template
@@ -26,7 +26,7 @@ export class MyComponent {
 
     // define options for our charts
     // these options are derived from the official documentation of the plugin
-    options: ChartOptions = {
+    options: Chart.Options = {
        type: 'bar',
        data: {
          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
