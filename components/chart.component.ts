@@ -202,6 +202,37 @@ export interface ChartLegendItem {
   pointStyle?: string;
 }
 
+export interface ChartTooltipConfiguration {
+  enabled?: boolean;
+  custom?: Function;
+  mode?: string;
+  itemSort?: Function;
+  backgroundColor?: string;
+  titleFontFamily?: string;
+  titleFontSize?: number;
+  titleFontStyle?: string;
+  titleFontColor?: string;
+  titleSpacing?: number;
+  titleMarginBottom?: number;
+  bodyFontFamily?: string;
+  bodyFontSize?: number;
+  bodyFontStyle?: string;
+  bodyFontColor?: string;
+  bodySpacing?: string;
+  footerFontFamily?: sring;
+  footerFontSize?: number;
+  footerFontStyle?: string;
+  footerFontColor?: string;
+  footerSpacing?: number;
+  footerMarginTop?: number;
+  xPadding?: number;
+  yPadding?: number;
+  caretSize?: number;
+  cornerRadius?: number;
+  multiKeyBackground?: string;
+  callbacks?: any;
+}
+
 export interface ChartDataset {
   label: string;
   data: number[];
@@ -209,3 +240,5 @@ export interface ChartDataset {
   borderColor?: string[];
   borderWidth?: number;
 }
+
+
