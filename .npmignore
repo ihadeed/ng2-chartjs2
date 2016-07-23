@@ -6,3 +6,5 @@ typings
 .npmignore
 demo.component.*
 demo.html
+systemjs.config.js
+.editorconfig
