@@ -70,12 +70,15 @@ export class MyComponent {
 - [ ] Define interfaces and enums
   - [x] Main options (missing a few)
   - [x] Chart types
-  - [ ] Title Configuration
-  - [ ] Legend Configuration
+  - [x] Title Configuration
+  - [x] Legend Configuration
+  - [x] Legend Label Configuration
   - [ ] Tooltip Configuration
   - [ ] Hover Configuration
   - [ ] Animation Configuration
   - [ ] Element Configuration
-  - ... more
 - [ ] Provide more options and control via component inputs
+  - [x] Labels
+  - [x] Data
+  - [x] Type
 - [ ] Route chart events through component outputs
