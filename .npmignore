@@ -4,3 +4,5 @@ typings
 !*.d.ts
 *.json
 .npmignore
+demo.component.*
+demo.html

@@ -13,7 +13,8 @@
     "**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "demo"
   ],
   "compileOnSave": false,
   "buildOnSave": false

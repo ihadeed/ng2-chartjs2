@@ -10,23 +10,46 @@ declare var Chart: any;
   styles: [':host {display: block;}']
 })
 export class ChartComponent implements OnInit, OnDestroy, OnChanges {
-
-  private chart: any;
+  /**
+   * Will store the chart object
+   * This is accessible to provide more control over charts for advanced usage
+   */
+  chart: any;
+  /**
+   * The canvas element
+   */
   private canvas: HTMLCanvasElement;
+  /**
+   * The context
+   */
   private ctx: CanvasRenderingContext2D;
+  /**
+   * Labels to display on chart
+   */
+  @Input() labels: string [] = [];
+  @Input() data: ChartDataset[] = [];
+  @Input() type: string;
 
-
-  @Input() private options: ChartOptions;
+  @Input() options: ChartOptions;
 
   constructor (private element: ElementRef) {}
 
   ngOnInit(): void {
-    console.log(this.element);
     this.canvas = this.element.nativeElement.children[0];
     this.ctx = this.canvas.getContext("2d");
+
+    // if the options param is provided, we will not use the other inputs
+    // this allows maximum customization and control
+    if(!this.options){
+      this.options = {
+        type: 'bar',
+        data: {
+          labels: this.labels,
+          datasets: this.data
+        }
+      }
+    }
     this.chart = new Chart(this.ctx, this.options);
-    console.log(this.chart);
-    window['c'] = this.chart;
   }
 
   ngOnDestroy(): void {
