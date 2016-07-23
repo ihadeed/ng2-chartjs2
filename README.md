@@ -58,7 +58,6 @@ This repo will only document things related to the Angular 2 Component. To under
 
 | Chart.js Doc Section  | Represented by interface |
 |---|---|
-| Data|---|
 | [Options](http://www.chartjs.org/docs/#chart-configuration-creating-a-chart-with-options) / [Common Chart Configuration](http://www.chartjs.org/docs/#chart-configuration-common-chart-configuration) |Chart.Options |
 | [Title Configuration](http://www.chartjs.org/docs/#chart-configuration-title-configuration) |Chart.TitleConfiguration|
 | [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LegendConfiguration|
