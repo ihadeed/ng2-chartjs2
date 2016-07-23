@@ -111,11 +111,6 @@ export namespace Chart {
       hover?: HoverConfiguration
     };
   }
-  export interface HoverConfiguration {
-    mode?: string;
-    animationDuration?: number;
-    onHover?: Function;
-  }
   export interface TitleConfiguration {
     /**
      * Display the title block
@@ -255,6 +250,107 @@ export namespace Chart {
     datasetIndex?: number,
     // Index of this data item in the dataset
     index?: number
+  }
+  export interface HoverConfiguration {
+    mode?: string;
+    animationDuration?: number;
+    onHover?: Function;
+  }
+  export interface AnimationConfiguration {
+    duration?: number;
+    easing?: string;
+    onProgress?: Function;
+    onComplete?: Function;
+  }
+  export interface Animation {
+    currentStep?: number;
+    numSteps?: number;
+    easing?: string;
+    render?: Function;
+    onAnimationProgress?: Function;
+    onAnimationComplete?: Function;
+  }
+  export interface ElementConfiguration {
+    /**
+     * Default fill color for arcs. Inherited from the global default
+     */
+    backgroundColor?: string;
+    /**
+     * Default stroke color for arcs
+     */
+    borderColor?: string;
+    /**
+     * Default stroke width for arcs
+     */
+    borderWidth?: number;
+  }
+  export interface LineConfiguration {
+    /**
+     * Default bezier curve tension. Set to 0 for no bezier curves.
+     */
+    tension?: number;
+    /**
+     * Default line fill color
+     */
+    backgroundColor?: string;
+    /**
+     * Default line stroke width
+     */
+    borderWidth?: number;
+    /**
+     * Default line stroke color
+     */
+    borderColor?: string;
+    /**
+     * 	Default line cap style
+     */
+    borderCapStyle?: string;
+    /**
+     * Default line dash.
+     */
+    borderDash?: string[];
+    /**
+     * Default line dash offset
+     */
+    borderDashOffset?: number;
+    /**
+     * 	Default line join style
+     */
+    borderJoinStyle?: string;
+    /**
+     * If true, bezier control points are kept inside the chart. If false, no restriction is enforced.
+     */
+    capBezierPoints?: boolean;
+    /**
+     * If true, the line is filled.
+     */
+    fill?: boolean;
+    /**
+     * If true, the line is shown as a steeped line and 'tension' will be ignored
+     */
+    stepped?: boolean;
+  }
+  export interface PointConfiguration {
+    /**
+     *
+     */
+    radius?: number;
+    /**
+     *
+     */
+    pointStyle?: string;
+    backgroundColor?: string;
+    borderWidth?: number;
+    borderColor?: string;
+    hitRadius?: number;
+    hoverRadius?: number;
+    hoverBorderWidth?: number;
+  }
+  export interface RectangleConfiguration {
+    backgroundColor?: string;
+    borderWidth?: number;
+    borderColor?: string;
+    borderSkipped?: string;
   }
   export interface Dataset {
     label: string;
