@@ -58,14 +58,19 @@ This repo will only document things related to the Angular 2 Component. To under
 
 | Chart.js Doc Section  | Represented by interface |
 |---|---|
+| Data|---|
 | [Options](http://www.chartjs.org/docs/#chart-configuration-creating-a-chart-with-options) / Common Chart Configuration (http://www.chartjs.org/docs/#chart-configuration-common-chart-configuration) |Chart.Options |
 | [Title Configuration](http://www.chartjs.org/docs/#chart-configuration-title-configuration) |Chart.TitleConfiguration|
-| [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LabelConfiguration|
+| [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LegendConfiguration|
+| [Legend Item Interface](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LegendItem|
 | [Tooltip Configuration](http://www.chartjs.org/docs/#chart-configuration-tooltip-configuration) |Chart.TooltipConfiguration|
-| | |
-| | |
-| | |
-| | |
+| Tooltip Callbacks | Chart.TooltipCallbacks |
+| Tooltip Item Interface | Chart.TooltipItem |
+| [Hover Configuration](http://www.chartjs.org/docs/#chart-configuration-hover-configuration) | Chart.HoverConfiguration |
+| [Animation Configuration](http://www.chartjs.org/docs/#chart-configuration-animation-configuration) | Chart.AnimationConfiguration |
+| Animation Interface | Chart.Animation |
+| Element Configuration | |
+| [Data Point](http://www.chartjs.org/docs/#line-chart-data-points) (for any type) | Chart.Dataset |
 | | |
 | | |
 
