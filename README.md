@@ -15,6 +15,8 @@ npm i --save-dev ng2-chartjs2
 ```
 
 ## Usage
+You can either pass `options` attribute with your own custom options (see [Chart.js Docs](http://www.chartjs.org/docs/)) or pass individual options like `labels`, `data`, and `type`.
+
 ```typescript
 import {ChartComponent, Chart} from 'ng2-chartjs2';
 

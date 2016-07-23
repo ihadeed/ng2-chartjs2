@@ -355,8 +355,24 @@ export namespace Chart {
   export interface Dataset {
     label: string;
     data: number[];
+    xAxisID?: string;
+    yAxisID?: string;
+    fill?:boolean;
+    lineTension?: number;
     backgroundColor?: string[];
-    borderColor?: string[];
-    borderWidth?: number;
+    borderColor?: string|string[];
+    borderCapStyle?: string;
+    borderDash?: number[];
+    borderDashOffset?: number[];
+    borderJoinStyle?: string;
+    pointBorderColor?: string|string[];
+    pointBackgroundColor?: string|string[];
+    pointBorderWidth?: number|number[];
+    pointRadius?: number|number[];
+    borderWidth?: number|number[];
+    borderSkipped?: string|string[];
+    hoverBackgroundColor?: string|string[];
+    hoverBorderColor?: string|string[];
+    hoverBorderWidth?: number|number[];
   }
 }
