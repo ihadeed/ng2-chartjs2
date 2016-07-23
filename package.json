@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ihadeed/ng2-chartjs2.git"
+    "url": "git+https://github.com/zyramedia/ng2-chartjs2.git"
   },
   "keywords": [
     "angular2",
@@ -25,9 +25,9 @@
   "author": "Zyra Media Inc",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ihadeed/ng2-chartjs2/issues"
+    "url": "https://github.com/zyramedia/ng2-chartjs2/issues"
   },
-  "homepage": "https://github.com/ihadeed/ng2-chartjs2#readme",
+  "homepage": "https://github.com/zyramedia/ng2-chartjs2#readme",
   "devDependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
