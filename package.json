@@ -1,6 +1,6 @@
 {
   "name": "ng2-chartjs2",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Chart.js 2.0 definitions for Angular 2",
   "main": "index.js",
   "scripts": {
@@ -42,6 +42,6 @@
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings":"^1.0.4"
+    "typings": "^1.0.4"
   }
 }
