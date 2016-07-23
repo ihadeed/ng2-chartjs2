@@ -19,40 +19,35 @@ npm i --save-dev ng2-chartjs2
 import {ChartComponent, Chart} from 'ng2-chartjs2';
 
 @Component({
-  template: `<chart [options]="options"></chart>`, // place this markup in your template
-  directives: [ChartComponent] // add directive to component
+  selector: 'my-app',
+  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>',
+  directives: [ChartComponent]
 })
-export class MyComponent {
-
-    // define options for our charts
-    // these options are derived from the official documentation of the plugin
-    options: Chart.Options = {
-       type: 'bar',
-       data: {
-         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-         datasets: [{
-           label: '# of Votes',
-           data: [12, 19, 3, 5, 2, 3],
-           backgroundColor: [
-             'rgba(255, 99, 132, 0.2)',
-             'rgba(54, 162, 235, 0.2)',
-             'rgba(255, 206, 86, 0.2)',
-             'rgba(75, 192, 192, 0.2)',
-             'rgba(153, 102, 255, 0.2)',
-             'rgba(255, 159, 64, 0.2)'
-           ],
-           borderColor: [
-             'rgba(255,99,132,1)',
-             'rgba(54, 162, 235, 1)',
-             'rgba(255, 206, 86, 1)',
-             'rgba(75, 192, 192, 1)',
-             'rgba(153, 102, 255, 1)',
-             'rgba(255, 159, 64, 1)'
-           ],
-           borderWidth: 1
-         }]
-       }
-    };
+export class AppComponent {
+  labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
+  data: Chart.Dataset[] = [
+    {
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }
+  ];
 }
 ```
 
