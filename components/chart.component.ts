@@ -179,6 +179,29 @@ export interface ChartLegendItemConfiguration {
   usePointStyle?: boolean;
 }
 
+export interface ChartLegendItem {
+  // Label that will be displayed
+  text?: string;
+  // Fill style of the legend box
+  fillStyle?: string;
+  // If true; this item represents a hidden dataset. Label will be rendered with a strike-through effect
+  hidden?: boolean;
+  // For box border. See https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/lineCap
+  lineCap?: string;
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+  lineDash?: number[];
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+  lineDashOffset?: number;
+  // For box border. See https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin
+  lineJoin?: string;
+  // Width of box border
+  lineWidth?: number;
+  // Stroke style of the legend box
+  strokeStyle?: string;
+  // Point style of the legend box (only used if usePointStyle is true)
+  pointStyle?: string;
+}
+
 export interface ChartDataset {
   label: string;
   data: number[];
