@@ -58,10 +58,10 @@ This repo will only document things related to the Angular 2 Component. To under
 
 | Chart.js Doc Section  | Represented by interface |
 |---|---|
-| [Options](http://www.chartjs.org/docs/#chart-configuration-creating-a-chart-with-options){:target="_blank"} / Common Chart Configuration (http://www.chartjs.org/docs/#chart-configuration-common-chart-configuration) |Chart.Options |
-| [Title Configuration](http://www.chartjs.org/docs/#chart-configuration-title-configuration){:target="_blank"} |Chart.TitleConfiguration|
-| [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration){:target="_blank"} |Chart.LabelConfiguration|
-| [Tooltip Configuration](http://www.chartjs.org/docs/#chart-configuration-tooltip-configuration){:target="_blank"} |Chart.TooltipConfiguration|
+| [Options](http://www.chartjs.org/docs/#chart-configuration-creating-a-chart-with-options) / Common Chart Configuration (http://www.chartjs.org/docs/#chart-configuration-common-chart-configuration) |Chart.Options |
+| [Title Configuration](http://www.chartjs.org/docs/#chart-configuration-title-configuration) |Chart.TitleConfiguration|
+| [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LabelConfiguration|
+| [Tooltip Configuration](http://www.chartjs.org/docs/#chart-configuration-tooltip-configuration) |Chart.TooltipConfiguration|
 | | |
 | | |
 | | |
