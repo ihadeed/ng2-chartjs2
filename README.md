@@ -14,7 +14,7 @@ You must manually include Chart.js library into your build or index.html
 npm i --save-dev ng2-chartjs2
 ```
 
-## Usage
+## Example Usage
 You can either pass `options` attribute with your own custom options (see [Chart.js Docs](http://www.chartjs.org/docs/)) or pass individual options like `labels`, `data`, and `type`.
 
 ```typescript
@@ -52,6 +52,23 @@ export class AppComponent {
   ];
 }
 ```
+
+## Reference
+This repo will only document things related to the Angular 2 Component. To understand how Chart.js works you need to visit [their docs](http://www.chartjs.org/docs/)
+
+| Chart.js Doc Section  | Represented by interface |
+|---|---|
+| [Options](http://www.chartjs.org/docs/#chart-configuration-creating-a-chart-with-options) / Common Chart Configuration (http://www.chartjs.org/docs/#chart-configuration-common-chart-configuration) |Chart.Options |
+| [Title Configuration](http://www.chartjs.org/docs/#chart-configuration-title-configuration) |Chart.TitleConfiguration|
+| [Legend Configuration](http://www.chartjs.org/docs/#chart-configuration-legend-configuration) |Chart.LabelConfiguration|
+| [Tooltip Configuration](http://www.chartjs.org/docs/#chart-configuration-tooltip-configuration) |Chart.TooltipConfiguration|
+| | |
+| | |
+| | |
+| | |
+| | |
+| | |
+
 
 ## TODO
 - [x] Get the charts working
