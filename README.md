@@ -73,10 +73,13 @@ export class MyComponent {
   - [x] Title Configuration
   - [x] Legend Configuration
   - [x] Legend Label Configuration
-  - [ ] Tooltip Configuration
-  - [ ] Hover Configuration
-  - [ ] Animation Configuration
-  - [ ] Element Configuration
+  - [x] Tooltip Configuration
+  - [x] Hover Configuration
+  - [x] Animation Configuration
+  - [x] Element Configuration
+  - [x] Line Configuration
+  - [x] Rectangle Configuration
+  - [x] Animation
 - [ ] Provide more options and control via component inputs
   - [x] Labels
   - [x] Data
