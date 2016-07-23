@@ -51,15 +51,6 @@ export class MyComponent {
            ],
            borderWidth: 1
          }]
-       },
-       options: {
-         scales: {
-           yAxes: [{
-             ticks: {
-               beginAtZero:true
-             }
-           }]
-         }
        }
     };
 }
