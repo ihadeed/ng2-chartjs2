@@ -28,7 +28,7 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
    */
   @Input() labels: string [] = [];
   @Input() data: Chart.Dataset[] = [];
-  @Input() type: string;
+  @Input() type: Chart.Type = 'bar';
 
   @Input() options: Chart.Options;
 
@@ -42,7 +42,7 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
     // this allows maximum customization and control
     if(!this.options){
       this.options = {
-        type: 'bar',
+        type: this.type,
         data: {
           labels: this.labels,
           datasets: this.data
