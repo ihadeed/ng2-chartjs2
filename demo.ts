@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {ChartComponent, Chart} from './index';
 @Component({
   selector: 'my-app',
-  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>',
-  directives: [ChartComponent]
+  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>'
 })
 export class AppComponent {
   labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
@@ -32,5 +31,20 @@ export class AppComponent {
   ];
 }
 
-import { bootstrap }    from '@angular/platform-browser-dynamic';
-bootstrap(AppComponent);
+
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+
+@NgModule({
+  imports:      [ BrowserModule ],
+  declarations: [
+    AppComponent,
+    ChartComponent
+  ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);
