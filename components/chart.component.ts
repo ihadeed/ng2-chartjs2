@@ -9,7 +9,7 @@ declare var Chart: any;
     `,
   styles: [':host {display: block;}']
 })
-export class ChartComponent implements OnInit, OnDestroy, OnChanges {
+export class ChartComponent implements OnInit, OnDestroy {
   /**
    * Will store the chart object
    * This is accessible to provide more control over charts for advanced usage
@@ -55,11 +55,6 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy(): void {
     if(this.chart) this.chart.destroy();
   }
-
-  ngOnChanges(): void {
-
-  }
-
 
 }
 export namespace Chart {
