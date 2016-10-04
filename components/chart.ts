@@ -1,12 +1,9 @@
-import {Component, ElementRef, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges} from '@angular/core';
-
+import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 declare var Chart: any;
 
 @Component({
   selector: 'chart',
-  template: `
-    <canvas></canvas>
-    `,
+  template: `<canvas></canvas>`,
   styles: [':host {display: block;}']
 })
 export class ChartComponent implements OnInit, OnDestroy {
