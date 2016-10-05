@@ -15,6 +15,8 @@ npm i --save-dev ng2-chartjs2
 ```
 
 ## Example Usage
+First, don't forget to import it in your NgModule under declarations.
+
 You can either pass `options` attribute with your own custom options (see [Chart.js Docs](http://www.chartjs.org/docs/)) or pass individual options like `labels`, `data`, and `type`.
 
 ```typescript
@@ -22,8 +24,7 @@ import {ChartComponent, Chart} from 'ng2-chartjs2';
 
 @Component({
   selector: 'my-app',
-  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>',
-  directives: [ChartComponent]
+  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>'
 })
 export class AppComponent {
   labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
@@ -72,25 +73,3 @@ This repo will only document things related to the Angular 2 Component. To under
 | [Data Point](http://www.chartjs.org/docs/#line-chart-data-points) (for any type) | Chart.Dataset |
 | | |
 | | |
-
-
-## TODO
-- [x] Get the charts working
-- [ ] Define interfaces and enums
-  - [x] Main options (missing a few)
-  - [x] Chart types
-  - [x] Title Configuration
-  - [x] Legend Configuration
-  - [x] Legend Label Configuration
-  - [x] Tooltip Configuration
-  - [x] Hover Configuration
-  - [x] Animation Configuration
-  - [x] Element Configuration
-  - [x] Line Configuration
-  - [x] Rectangle Configuration
-  - [x] Animation
-- [ ] Provide more options and control via component inputs
-  - [x] Labels
-  - [x] Data
-  - [x] Type
-- [ ] Route chart events through component outputs
