@@ -1,6 +1,5 @@
 import {
-  Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter, OnChanges,
-  SimpleChanges
+  Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter, DoCheck
 } from '@angular/core';
 declare var Chart: any;
 
@@ -9,7 +8,7 @@ declare var Chart: any;
   template: `<canvas></canvas>`,
   styles: [':host {display: block;}']
 })
-export class ChartComponent implements OnInit, OnDestroy, OnChanges {
+export class ChartComponent implements OnInit, OnDestroy, DoCheck {
   /**
    * Will store the chart object
    * This is accessible to provide more control over charts for advanced usage
@@ -30,6 +29,10 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
   @Input() data: Chart.Dataset[] = [];
   @Input() type: Chart.Type = 'bar';
   @Input() options: Chart.Options;
+
+  private _labels: string[] = [];
+  private _data: Chart.Dataset[] = [];
+  private _options: Chart.Options;
 
   @Output() click: EventEmitter<any> = new EventEmitter<any>();
   @Output() resize: EventEmitter<any> = new EventEmitter<any>();
@@ -73,12 +76,16 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
     this.destroy();
   }
   
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Changed', changes);
-    if (this.chart) {
-      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('labels') || changes.hasOwnProperty('options')) {
-        this.chart.update();
-      }
+  ngDoCheck(): void {
+    if(
+      this.data !== this._data
+      || this._labels !== this.labels
+      || this._options !== this.options
+    ) {
+      this._data = this.data;
+      this._labels = this.labels;
+      this._options = this.options;
+      this.update();
     }
   }
 
@@ -94,7 +101,7 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
    * @param duration {number} the time for the animation of the redraw in miliseconds
    * @param lazy {boolean} if true, the animation can be interupted by other animations
    */
-  update(duration: number, lazy: boolean): void {
+  update(duration?: number, lazy?: boolean): void {
     if(this.chart) this.chart.update(duration, lazy);
   }
 
@@ -103,7 +110,7 @@ export class ChartComponent implements OnInit, OnDestroy, OnChanges {
    * @param duration {number} the time for the animation of the redraw in miliseconds
    * @param lazy {boolean} if true, the animation can be interupted by other animations
    */
-  render(duration: number, lazy: boolean): void {
+  render(duration?: number, lazy?: boolean): void {
     if(this.chart) this.chart.render(duration, lazy);
   }
 
