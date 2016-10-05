@@ -10,17 +10,30 @@ Note: This is work in progress, watch this repo to stay up to date.
 ## Installation
 You must manually include Chart.js library into your build or index.html
 
+Then install ng2-chartjs2 via NPM
 ```
 npm i --save-dev ng2-chartjs2
 ```
 
+Then import ChartModule into your main App Module:
+```
+@MyAppModule({
+...
+  imports: [
+   ...
+   ChartModule
+  ]
+...
+})
+```
+
+
 ## Example Usage
-First, don't forget to import it in your NgModule under declarations.
 
 You can either pass `options` attribute with your own custom options (see [Chart.js Docs](http://www.chartjs.org/docs/)) or pass individual options like `labels`, `data`, and `type`.
 
 ```typescript
-import {ChartComponent, Chart} from 'ng2-chartjs2';
+import { Chart } from 'ng2-chartjs2';
 
 @Component({
   selector: 'my-app',

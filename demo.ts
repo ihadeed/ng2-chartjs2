@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartComponent, Chart } from './index';
+import { Chart, ChartModule } from './index';
 @Component({
   selector: 'my-app',
   template: '<chart [labels]="labels" [data]="data" type="bar" (onClick)="onClick($event)" (onResize)="onResize($event)" (onHover)="onHover($event)"></chart>'
@@ -56,10 +56,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [
+    BrowserModule,
+    ChartModule
+  ],
   declarations: [
-    AppComponent,
-    ChartComponent
+    AppComponent
   ],
   bootstrap:    [ AppComponent ]
 })
