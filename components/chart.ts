@@ -1,4 +1,7 @@
-import { Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import {
+  Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter, OnChanges,
+  SimpleChanges
+} from '@angular/core';
 declare var Chart: any;
 
 @Component({
@@ -6,7 +9,7 @@ declare var Chart: any;
   template: `<canvas></canvas>`,
   styles: [':host {display: block;}']
 })
-export class ChartComponent implements OnInit, OnDestroy {
+export class ChartComponent implements OnInit, OnDestroy, OnChanges {
   /**
    * Will store the chart object
    * This is accessible to provide more control over charts for advanced usage
@@ -30,16 +33,23 @@ export class ChartComponent implements OnInit, OnDestroy {
 
   @Output() click: EventEmitter<any> = new EventEmitter<any>();
   @Output() resize: EventEmitter<any> = new EventEmitter<any>();
+  @Output() hover: EventEmitter<any> = new EventEmitter<any>();
 
   constructor (private element: ElementRef) {}
 
   ngOnInit(): void {
+    // verify that the library exists
+    if (typeof Chart === 'undefined') {
+      console.error('You must include Chart.js 2.0 Library in your index.html in order for ng2-chartjs2 to work.');
+      return;
+    }
+
     this.canvas = this.element.nativeElement.children[0];
     this.ctx = this.canvas.getContext("2d");
 
     // if the options param is provided, we will not use the other inputs
     // this allows maximum customization and control
-    if(!this.options){
+    if (!this.options) {
       this.options = {
         type: this.type,
         data: {
@@ -48,17 +58,127 @@ export class ChartComponent implements OnInit, OnDestroy {
         }
       }
     }
+    // create new chart
     this.chart = new Chart(this.ctx, this.options);
-    if(!this.options.options) this.options.options = {};
-    if(!this.options.options.onClick) this.options.options.onClick = this.click.emit.bind(this.click);
-    if(!this.options.options.onResize) this.options.options.onResize = this.resize.emit.bind(this.resize);
+    // bind the event emitters to the options
+    if (!this.options.options) this.options.options = {};
+    if (!this.options.options.hover) this.options.options.hover = {};
+    if (!this.options.options.onClick) this.options.options.onClick = this.click.emit.bind(this.click);
+    if (!this.options.options.onResize) this.options.options.onResize = this.resize.emit.bind(this.resize);
+    if (!this.options.options.hover.onHover) this.options.options.hover.onHover = this.hover.emit.bind(this.hover);
   }
 
   ngOnDestroy(): void {
+    // destroy the chart object
+    this.destroy();
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Changed', changes);
     if (this.chart) {
-      this.chart.destroy();
-      this.chart = undefined;
+      if (changes.hasOwnProperty('data') || changes.hasOwnProperty('labels') || changes.hasOwnProperty('options')) {
+        this.chart.update();
+      }
     }
+  }
+
+  /**
+   * Use this to destroy any chart instances that are created. This will clean up any references stored to the chart object within Chart.js, along with any associated event listeners attached by Chart.js. This must be called before the canvas is reused for a new chart.
+   */
+  destroy(): void {
+    if(this.chart) this.chart.destory();
+  }
+
+  /**
+   * Triggers an update of the chart. This can be safely called after replacing the entire data object. This will update all scales, legends, and then re-render the chart.
+   * @param duration {number} the time for the animation of the redraw in miliseconds
+   * @param lazy {boolean} if true, the animation can be interupted by other animations
+   */
+  update(duration: number, lazy: boolean): void {
+    if(this.chart) this.chart.update(duration, lazy);
+  }
+
+  /**
+   * Triggers a redraw of all chart elements. Note, this does not update elements for new data. Use .update() in that case.
+   * @param duration {number} the time for the animation of the redraw in miliseconds
+   * @param lazy {boolean} if true, the animation can be interupted by other animations
+   */
+  render(duration: number, lazy: boolean): void {
+    if(this.chart) this.chart.render(duration, lazy);
+  }
+
+  /**
+   * Use this to stop any current animation loop. This will pause the chart during any current animation frame. Call .render() to re-animate.
+   */
+  stop(): void {
+    if(this.chart) this.chart.stop();
+  }
+
+  /**
+   * Use this to manually resize the canvas element. This is run each time the canvas container is resized, but you can call this method manually if you change the size of the canvas nodes container element.
+   */
+  resize(): void {
+    if(this.chart) this.chart.resize();
+  }
+
+  /**
+   * Will clear the chart canvas. Used extensively internally between animation frames, but you might find it useful.
+   */
+  clear(): void {
+    if(this.chart) this.chart.clear();
+  }
+
+  /**
+   * This returns a base 64 encoded string of the chart in it's current state.
+   * @returns {string} base64 encoded string of the chart
+   */
+  toBase64Image(): string {
+    if(this.chart) return this.chart.toBase64Image();
+  }
+
+  /**
+   * Returns an HTML string of a legend for that chart. The legend is generated from the legendCallback in the options.
+   * @returns {string}
+   */
+  generateLegend(): string {
+    if(this.chart) return this.chart.generateLegend();
+  }
+
+  /**
+   * Calling getElementAtEvent(event) on your Chart instance passing an argument of an event, or jQuery event, will return the single element at the event position. If there are multiple items within range, only the first is returned
+   * @param event
+   * @returns {HTMLElement}
+   */
+  getElementAtEvent(event): HTMLElement {
+    if(this.chart) return this.chart.getElementAtEvent(event);
+  }
+
+  /**
+   * Looks for the element under the event point, then returns all elements at the same data index. This is used internally for 'label' mode highlighting.
+   * @param event
+   * @returns {HTMLElement[]}
+   */
+  getElementsAtEvent(event): HTMLElement[] {
+    if(this.chart) return this.chart.getElementsAtEvent(event);
+  }
+
+  /**
+   * Looks for the element under the event point, then returns all elements from that dataset. This is used internally for 'dataset' mode highlighting
+   * @param event
+   * @returns {Chart.Dataset}
+   */
+  getDatasetAtEvent(event): Chart.Dataset {
+    if(this.chart) return this.chart.getDatasetAtEvent(event);
+  }
+
+  /**
+   * Looks for the dataset that matches the current index and returns that metadata. This returned data has all of the metadata that is used to construct the chart.
+   * The data property of the metadata will contain information about each point, rectangle, etc. depending on the chart type.
+   * @param index
+   * @returns {any}
+   */
+  getDatasetMeta(index): any {
+    if(this.chart) return this.chart.getDatasetMeta(index);
   }
 
 }
@@ -71,15 +191,18 @@ export namespace Chart {
       datasets: Dataset[];
     };
     options?: {
+      tooltips?: {
+        custom?: Function;
+      };
       legend?: LegendConfiguration;
       scales?: {
         yAxes?: Array<{ticks?: {beginAtZero: boolean}}>
-      },
+      };
       /**
        * Resizes when the canvas container does.
        * Defaults to true
        */
-      responsive?: boolean,
+      responsive?: boolean;
       /**
        * Duration in milliseconds it takes to animate to new size after a resize event.
        * Defaults to 0
@@ -108,7 +231,7 @@ export namespace Chart {
        */
       onResize?: Function;
       title?: TitleConfiguration;
-      hover?: HoverConfiguration
+      hover?: HoverConfiguration;
     };
   }
   export interface TitleConfiguration {
@@ -243,13 +366,13 @@ export namespace Chart {
   }
   export interface TooltipItem {
     // X Value of the tooltip as a string
-    xLabel?: string,
+    xLabel?: string;
     // Y value of the tooltip as a string
-    yLabel?: string,
+    yLabel?: string;
     // Index of the dataset the item comes from
-    datasetIndex?: number,
+    datasetIndex?: number;
     // Index of this data item in the dataset
-    index?: number
+    index?: number;
   }
   export interface HoverConfiguration {
     mode?: string;

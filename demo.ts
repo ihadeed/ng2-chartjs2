@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartComponent, Chart } from './index';
 @Component({
   selector: 'my-app',
-  template: '<chart [labels]="labels" [data]="data" type="bar" (click)="onClick($event)" (resize)="onResize($event)"></chart>'
+  template: '<chart [labels]="labels" [data]="data" type="bar" (click)="onClick($event)" (resize)="onResize($event)" (hover)="onHover($event)"></chart>'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
   data: Chart.Dataset[] = [
     {
@@ -30,12 +30,23 @@ export class AppComponent {
     }
   ];
 
+  ngOnInit(): void {
+    setTimeout(() => {
+      console.log('Updating data');
+      this.data[0].data = [26, 15, 2, 36, 18, 7];
+    }, 3000);
+  }
+
   onClick(e) {
     console.log('Clicked', e);
   }
 
   onResize(e) {
     console.log('Resized', e);
+  }
+
+  onHover(e) {
+    console.log('Hover', e);
   }
 }
 
