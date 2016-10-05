@@ -50,7 +50,10 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.chart) this.chart.destroy();
+    if (this.chart) {
+      this.chart.destroy();
+      this.chart = undefined;
+    }
   }
 
 }
