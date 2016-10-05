@@ -34,9 +34,9 @@ export class ChartComponent implements OnInit, OnDestroy, DoCheck {
   private _data: Chart.Dataset[] = [];
   private _options: Chart.Options;
 
-  @Output() click: EventEmitter<any> = new EventEmitter<any>();
-  @Output() resize: EventEmitter<any> = new EventEmitter<any>();
-  @Output() hover: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onResize: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onHover: EventEmitter<any> = new EventEmitter<any>();
 
   constructor (private element: ElementRef) {}
 
@@ -66,9 +66,9 @@ export class ChartComponent implements OnInit, OnDestroy, DoCheck {
     // bind the event emitters to the options
     if (!this.options.options) this.options.options = {};
     if (!this.options.options.hover) this.options.options.hover = {};
-    if (!this.options.options.onClick) this.options.options.onClick = this.click.emit.bind(this.click);
-    if (!this.options.options.onResize) this.options.options.onResize = this.resize.emit.bind(this.resize);
-    if (!this.options.options.hover.onHover) this.options.options.hover.onHover = this.hover.emit.bind(this.hover);
+    if (!this.options.options.onClick) this.options.options.onClick = this.onClick.emit.bind(this.onClick);
+    if (!this.options.options.onResize) this.options.options.onResize = this.onResize.emit.bind(this.onResize);
+    if (!this.options.options.hover.onHover) this.options.options.hover.onHover = this.onHover.emit.bind(this.onHover);
   }
 
   ngOnDestroy(): void {
@@ -122,10 +122,10 @@ export class ChartComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   /**
-   * Use this to manually resize the canvas element. This is run each time the canvas container is resized, but you can call this method manually if you change the size of the canvas nodes container element.
+   * Use this to manually onResize the canvas element. This is run each time the canvas container is resized, but you can call this method manually if you change the size of the canvas nodes container element.
    */
   resize(): void {
-    if(this.chart) this.chart.resize();
+    if(this.chart) this.chart.onResize();
   }
 
   /**

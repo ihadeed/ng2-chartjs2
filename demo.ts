@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartComponent, Chart } from './index';
 @Component({
   selector: 'my-app',
-  template: '<chart [labels]="labels" [data]="data" type="bar" (click)="onClick($event)" (resize)="onResize($event)" (hover)="onHover($event)"></chart>'
+  template: '<chart [labels]="labels" [data]="data" type="bar" (onClick)="onClick($event)" (onResize)="onResize($event)" (onHover)="onHover($event)"></chart>'
 })
 export class AppComponent implements OnInit {
   labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];

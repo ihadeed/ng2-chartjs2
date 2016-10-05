@@ -3,8 +3,10 @@ typings
 *.ts
 !*.d.ts
 *.json
+!*.metadata.json
 .npmignore
 demo.component.*
 demo.html
 systemjs.config.js
 .editorconfig
+aot

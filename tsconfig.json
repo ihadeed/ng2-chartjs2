@@ -9,5 +9,8 @@
     "removeComments": false,
     "noImplicitAny": false,
     "declaration": true
+  },
+  "angularCompilerOptions": {
+    "genDir": "aot"
   }
 }

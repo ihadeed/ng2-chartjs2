@@ -4,3 +4,5 @@ node_modules
 *.js
 !systemjs.config.js
 *.map
+aot
+*.metadata.json
