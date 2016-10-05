@@ -63,6 +63,7 @@ export namespace Chart {
       datasets: Dataset[];
     };
     options?: {
+      legend?: LegendConfiguration;
       scales?: {
         yAxes?: Array<{ticks?: {beginAtZero: boolean}}>
       },
