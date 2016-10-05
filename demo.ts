@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ChartComponent, Chart} from './index';
 @Component({
   selector: 'my-app',
-  template: '<chart [labels]="labels" [data]="data" type="bar"></chart>'
+  template: '<chart [labels]="labels" [data]="data" type="bar" (click)="onClick($event)" (resize)="onResize($event)"></chart>'
 })
 export class AppComponent {
   labels: string[] = ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"];
@@ -29,6 +29,14 @@ export class AppComponent {
       borderWidth: 1
     }
   ];
+
+  onClick(e) {
+    console.log('Clicked', e);
+  }
+
+  onResize(e) {
+    console.log('Resized', e);
+  }
 }
 
 

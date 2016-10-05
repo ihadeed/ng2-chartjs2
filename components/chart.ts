@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 declare var Chart: any;
 
 @Component({
@@ -26,8 +26,10 @@ export class ChartComponent implements OnInit, OnDestroy {
   @Input() labels: string [] = [];
   @Input() data: Chart.Dataset[] = [];
   @Input() type: Chart.Type = 'bar';
-
   @Input() options: Chart.Options;
+
+  @Output() click: EventEmitter<any> = new EventEmitter<any>();
+  @Output() resize: EventEmitter<any> = new EventEmitter<any>();
 
   constructor (private element: ElementRef) {}
 
@@ -47,6 +49,9 @@ export class ChartComponent implements OnInit, OnDestroy {
       }
     }
     this.chart = new Chart(this.ctx, this.options);
+    if(!this.options.options) this.options.options = {};
+    if(!this.options.options.onClick) this.options.options.onClick = this.click.emit.bind(this.click);
+    if(!this.options.options.onResize) this.options.options.onResize = this.resize.emit.bind(this.resize);
   }
 
   ngOnDestroy(): void {
@@ -91,7 +96,7 @@ export namespace Chart {
        */
       events?: string[];
       /**
-       * Called if the event is of type 'mouseup' or 'click'. Called in the context of the chart and passed an array of active elements
+       * Called if the event is of type 'mouseup' or 'click'. Called in the context of the chart and passed an array of active elements.
        */
       onClick?: Function;
       /**
