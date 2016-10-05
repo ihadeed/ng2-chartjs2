@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ChartComponent, Chart} from './index';
+import { ChartComponent, Chart } from './index';
 @Component({
   selector: 'my-app',
   template: '<chart [labels]="labels" [data]="data" type="bar" (click)="onClick($event)" (resize)="onResize($event)"></chart>'
