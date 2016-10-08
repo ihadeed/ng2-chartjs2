@@ -93,7 +93,7 @@ export class ChartComponent implements OnInit, OnDestroy, DoCheck {
    * Use this to destroy any chart instances that are created. This will clean up any references stored to the chart object within Chart.js, along with any associated event listeners attached by Chart.js. This must be called before the canvas is reused for a new chart.
    */
   destroy(): void {
-    if(typeof this.chart !== 'undefined' && typeof this.chart.destroy === 'function') this.chart.destory();
+    if(typeof this.chart !== 'undefined' && typeof this.chart.destroy === 'function') this.chart.destroy();
   }
 
   /**
