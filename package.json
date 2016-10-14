@@ -10,7 +10,8 @@
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings",
+    "build": "node_modules/.bin/ngc"
   },
   "repository": {
     "type": "git",
