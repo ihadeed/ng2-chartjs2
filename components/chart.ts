@@ -239,6 +239,34 @@ export namespace Chart {
       onResize?: Function;
       title?: TitleConfiguration;
       hover?: HoverConfiguration;
+      /**
+       * Pan options (Requires Chart.Zoom.js)
+       */
+      pan?: {
+        /**
+         * Boolean to enable panning
+         */
+        enabled?: boolean;
+        /**
+         * Panning directions. 'x', 'xy', or 'y'
+         * Eg. 'y' would only allow panning in the y direction
+         */
+        mode?: string;
+      },
+      /**
+       * Zoom options (Requires (Chart.Zoom.js)
+       */
+      zoom?: {
+        /**
+         * Boolean to enable zooming
+         */
+        enabled?: boolean;
+        /**
+         * Zooming directions. 'x', 'xy', or 'y'
+         * Eg. 'y' would only allow zooming in the y direction
+         */
+        mode?: string;
+      }
     };
   }
   export interface TitleConfiguration {
