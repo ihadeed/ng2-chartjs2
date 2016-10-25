@@ -15,7 +15,7 @@ npm i --save-dev ng2-chartjs2
 
 Then import ChartModule into your main App Module:
 ```
-@MyAppModule({
+@NgModule({
 ...
   imports: [
    ...
