@@ -198,9 +198,7 @@ export namespace Chart {
       datasets: Dataset[];
     };
     options?: {
-      tooltips?: {
-        custom?: Function;
-      };
+      tooltips?: TooltipConfiguration;
       legend?: LegendConfiguration;
       scales?: {
         yAxes?: Array<{ticks?: {beginAtZero: boolean}}>
